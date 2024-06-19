@@ -38,16 +38,28 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(toggleNotification, 1500);
 });
 
-function blackOut() {
-  const blackoutDiv = document.createElement("div");
-  blackoutDiv.style.position = "fixed";
-  blackoutDiv.style.top = "0";
-  blackoutDiv.style.left = "0";
-  blackoutDiv.style.width = "100%";
-  blackoutDiv.style.height = "100%";
-  blackoutDiv.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-  blackoutDiv.style.zIndex = "9999";
-  document.body.appendChild(blackoutDiv);
+function darkenScreen() {
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.backgroundColor = "rgba(0, 0, 0, 0)"; // Start with transparent
+  overlay.style.zIndex = "9999"; // Ensure it's on top of other elements
+  document.body.appendChild(overlay);
+
+  // Animate the opacity gradually
+  let opacity = 0;
+  const interval = setInterval(() => {
+    opacity += 0.05; // Adjust the increment value for speed of dimming
+    overlay.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+
+    if (opacity >= 1) {
+      // Adjust the final opacity value as needed
+      clearInterval(interval);
+    }
+  }, 50); // Adjust the interval time for smoothness
 }
 
 function handleOptionClick(option) {
@@ -56,11 +68,15 @@ function handleOptionClick(option) {
   switch (option) {
     case "tiktok":
       filePath = "tiktok/week1tt.html";
+      break;
+    case "youtube":
+      filePath = "youtube/week1yt.html";
+      break;
   }
 
-  blackOut();
+  darkenScreen();
 
   setTimeout(() => {
     window.location.href = filePath;
-  }, 500);
+  }, 1500);
 }
