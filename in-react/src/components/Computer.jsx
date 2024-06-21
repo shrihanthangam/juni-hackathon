@@ -3,7 +3,7 @@ import "../static/css/Computer.css";
 import computer_img from "../static/images/computer.png";
 import youtube_logo from "../static/images/youtube_logo.png";
 
-function Computer({ videos, computerText, style }) {
+function Computer({ videos, computerText, smallComputerText, style }) {
   if (videos.length == 2) {
     return (
       <>
@@ -17,6 +17,7 @@ function Computer({ videos, computerText, style }) {
           </div>
 
           <p id="computer-text">{computerText}</p>
+          <p id="small-computer-text">{smallComputerText}</p>
         </div>
       </>
     );
@@ -36,6 +37,7 @@ function Computer({ videos, computerText, style }) {
           </div>
 
           <p id="computer-text">{computerText}</p>
+          <p id="small-computer-text">{smallComputerText}</p>
         </div>
       </>
     );

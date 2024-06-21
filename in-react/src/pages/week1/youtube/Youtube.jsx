@@ -14,6 +14,7 @@ import t4 from "../../../static/images/thumbnails/t4.jpg";
 
 function Youtube() {
   const [curString, setCurString] = useState("");
+  const [curSmallString, setCurSmallString] = useState("");
 
   const [topStyle, setTopStyle] = useState({ left: "-575px" });
   const [bottomStyle, setBottomStyle] = useState({
@@ -28,11 +29,14 @@ function Youtube() {
   });
 
   const [curMoveRate, setCurMoveRate] = useState(10);
+  const moveRateRef = useRef(curMoveRate);
+  moveRateRef.current = curMoveRate;
 
   const [isWhitened, setIsWhitened] = useState(false);
 
-  const moveRateRef = useRef(curMoveRate);
-  moveRateRef.current = curMoveRate;
+  const [textClass, setTextClass] = useState("");
+  const textClassRef = useRef(textClass);
+  textClassRef.current = textClass;
 
   const whitenScreen = () => {
     setIsWhitened(true);
@@ -41,12 +45,27 @@ function Youtube() {
   const animateThumbnails = () => {
     const interval = setInterval(() => {
       if (moveRateRef.current >= 80) {
-        console.log("done!");
         whitenScreen();
       }
 
       if (moveRateRef.current >= 350) {
         clearInterval(interval);
+        setTopStyle({ display: "none" });
+        setTopRightStyle({ display: "none" });
+        setBottomStyle({ display: "none" });
+        setBottomRightStyle({ display: "none" });
+
+        animateText(". . .", 1500, setCurString, () => {
+          setTimeout(() => {
+            setCurString("");
+            animateText(
+              "good job! you decided to wake up and\n\nprocrastinate. you're so smart for that one.\n\nyou're gonna feel happy now but sooner\n\nor later your gonna regret always\n\nprocrastinating. good job!!!!!",
+              150,
+              setCurSmallString
+            );
+          }, 1500);
+        });
+
         return;
       }
 
@@ -107,6 +126,26 @@ function Youtube() {
     return () => clearInterval(interval);
   };
 
+  const animateText = (text, waitTime, settingFunction, callback) => {
+    let counter = 0;
+    const interval = setInterval(() => {
+      if (counter >= text.length) {
+        settingFunction(text); // Set full text when animation completes
+        clearInterval(interval); // Clear interval
+        if (callback) {
+          callback();
+        }
+        // finished(true);
+      } else {
+        settingFunction(text.substring(0, counter) + " |"); // Update curString progressively
+        console.log(counter, text.substring(0, counter));
+        counter += 1;
+      }
+    }, waitTime);
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  };
+
   useEffect(() => {
     moveRateRef.current = curMoveRate;
   }, [curMoveRate]);
@@ -130,6 +169,7 @@ function Youtube() {
             <Computer
               videos={[t1, t2, t3, t4]}
               computerText={curString}
+              smallComputerText={curSmallString}
               style={[topStyle, bottomStyle, topRightStyle, bottomRightStyle]}
             />
           </>

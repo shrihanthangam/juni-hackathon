@@ -8,9 +8,20 @@
   opacity: 0; /* Adjust opacity as needed */
   z-index: 99; /* Ensure it appears above other elements */
   pointer-events: none; /* Allow interaction with elements underneath */
-  transition: opacity 3s ease;
+  transition: opacity 3s ease, filter 2s ease;
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  filter: none;
 }
 
 .white-overlay.visible {
+  /* Any browser which supports CSS3 */
+  filter: blur(10px);
+
+  /* Firefox version 34 and earlier */
+  filter: url("blur.svg#gaussian_blur");
+
+  /* Webkit in Chrome 52, Safari 9, Opera 39, and earlier */
+  -webkit-filter: blur(10px);
   opacity: 1;
 }

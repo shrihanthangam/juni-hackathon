@@ -17,12 +17,25 @@
 }
 
 #computer #computer-text {
-  width: 200px;
+  width: 50%;
   position: absolute;
   top: 75px;
   margin: 15px;
   font-size: 100px;
   left: 40%;
+  z-index: 101;
+  white-space: pre-line;
+}
+
+#computer #small-computer-text {
+  width: 50%;
+  position: absolute;
+  top: 75px;
+  margin: 15px;
+  font-size: 20px;
+  left: 20%;
+  z-index: 101;
+  white-space: pre-line;
 }
 
 .video {
