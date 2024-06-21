@@ -1,0 +1,30 @@
+.window {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: #9cdffa;
+  border: 1px solid #402f1d;
+
+  border-radius: 10px;
+}
+
+.window::before,
+.window::after {
+  content: "";
+  position: absolute;
+  background-color: #554029;
+}
+
+.window::before {
+  width: 1px; /* Vertical line */
+  height: 100%;
+  top: 0;
+  left: 50%; /* Adjust left position for vertical line */
+}
+
+.window::after {
+  width: 100%; /* Horizontal line */
+  height: 1px;
+  top: 50%; /* Adjust top position for horizontal line */
+  left: 0;
+}

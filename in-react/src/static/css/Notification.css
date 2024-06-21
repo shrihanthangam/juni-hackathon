@@ -1,0 +1,36 @@
+#notification {
+  font-family: "Roboto", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  background-color: lightyellow;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.7);
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#notification .fas {
+  margin-right: 10px;
+}
+
+#notification p {
+  margin: 0;
+  text-align: center;
+}
+
+#notification .close {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #888;
+}
+
+#notification .close {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #888;
+}

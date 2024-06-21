@@ -1,0 +1,32 @@
+#computer {
+  position: absolute;
+  top: 20%;
+  left: calc(50% - 375px);
+}
+
+#computer .computer-img {
+  width: 750px;
+}
+
+#computer .youtube-logo {
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 15px;
+}
+
+#computer #computer-text {
+  width: 200px;
+  position: absolute;
+  top: 75px;
+  margin: 15px;
+  font-size: 100px;
+  left: 40%;
+}
+
+.video {
+  position: absolute;
+  height: 150px;
+  top: 50px;
+}
