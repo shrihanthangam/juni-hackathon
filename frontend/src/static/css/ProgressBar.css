@@ -1,0 +1,24 @@
+.progress-bar-container {
+  position: absolute; /* Add position for absolute positioning */
+  height: 20px; /* Adjust the height to fit the title and the progress bar */
+  background-color: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#progress-bar-title {
+  position: absolute;
+  transform: translateX(-50%);
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  white-space: nowrap; /* Prevent text from wrapping */
+  z-index: 1; /* Ensure the title is above the progress bar */
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0; /* Align the progress bar to the bottom of the container */
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease-in-out;
+}

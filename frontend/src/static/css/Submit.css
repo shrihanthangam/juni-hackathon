@@ -1,0 +1,30 @@
+button[type="submit"] {
+  background-color: #4caf50; /* Green background */
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049; /* Darker green background on hover */
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+  background-color: #388e3c; /* Even darker green background on click */
+  transform: translateY(0);
+}
+
+button[type="submit"]:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px rgba(72, 187, 120, 0.5); /* Focus outline */
+}

@@ -1,0 +1,37 @@
+.happiness-container {
+  position: absolute; /* Add position for absolute positioning */
+  height: 20px; /* Adjust the height to fit the title and the progress bar */
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#happiness-title {
+  position: absolute;
+  font-weight: bold;
+  font-size: 40px;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  white-space: nowrap; /* Prevent text from wrapping */
+  z-index: 1; /* Ensure the title is above the progress bar */
+}
+
+.happiness-bar {
+  position: absolute;
+  bottom: 0; /* Align the progress bar to the bottom of the container */
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.low {
+  background-color: rgb(255, 94, 94);
+}
+
+.medium {
+  background: rgb(255, 198, 92);
+}
+
+.high {
+  background-color: rgb(47, 190, 47);
+}

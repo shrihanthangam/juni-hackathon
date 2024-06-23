@@ -1,0 +1,44 @@
+.black-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0; /* Adjust opacity as needed */
+  z-index: 99; /* Ensure it appears above other elements */
+  pointer-events: none; /* Allow interaction with elements underneath */
+}
+
+.black-overlay.visible {
+  opacity: 1;
+}
+
+.blur {
+  /* Any browser which supports CSS3 */
+  filter: blur(2px);
+  font-weight: bold; /* Bold everything that has blur class */
+
+  /* Firefox version 34 and earlier */
+  filter: url("blur.svg#gaussian_blur");
+
+  /* Webkit in Chrome 52, Safari 9, Opera 39, and earlier */
+  -webkit-filter: blur(2px);
+}
+
+#text {
+  font-size: 40px;
+  position: absolute;
+  width: 500px;
+  left: calc(50% - 250px);
+  top: 200px;
+  /* Any browser which supports CSS3 */
+  filter: blur(2px);
+  font-weight: normal; /* Ensure the text is not bold */
+
+  /* Firefox version 34 and earlier */
+  filter: url("blur.svg#gaussian_blur");
+
+  /* Webkit in Chrome 52, Safari 9, Opera 39, and earlier */
+  -webkit-filter: blur(2px);
+}

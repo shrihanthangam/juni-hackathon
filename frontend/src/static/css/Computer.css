@@ -1,0 +1,46 @@
+#computer {
+  position: absolute;
+  top: 20%;
+  left: calc(50% - 375px);
+}
+
+#computer .computer-img {
+  width: 750px;
+  z-index: 0;
+}
+
+#computer .youtube-logo {
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 15px;
+}
+
+#computer #computer-text {
+  width: 50%;
+  position: absolute;
+  top: 75px;
+  margin: 15px;
+  font-size: 100px;
+  left: 40%;
+  z-index: 101;
+  white-space: pre-line;
+}
+
+#computer #small-computer-text {
+  width: 97%;
+  position: absolute;
+  top: 75px;
+  margin: 15px;
+  font-size: 20px;
+  left: 0%;
+  z-index: 101;
+  white-space: pre-line;
+}
+
+.video {
+  position: absolute;
+  height: 150px;
+  top: 50px;
+}

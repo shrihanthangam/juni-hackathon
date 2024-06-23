@@ -1,0 +1,36 @@
+#angry {
+  font-size: 0px;
+  transition: font-size 5s ease-in-out;
+  z-index: 999;
+  position: absolute;
+  left: 35%;
+  top: -30%;
+}
+
+#angry-text {
+  font-size: 25px;
+  position: absolute;
+  left: 35%;
+  top: 80%;
+  width: 33%;
+  z-index: 1000;
+  font-weight: bold;
+}
+
+.essay {
+  z-index: 100;
+  position: absolute;
+  left: 31%;
+  top: 30%;
+  width: 37%;
+  height: 26%;
+  border: none;
+  background-color: inherit;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.essay:focus {
+  outline: none;
+  border: none;
+}
