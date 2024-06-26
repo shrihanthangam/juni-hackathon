@@ -33,7 +33,7 @@ function Work() {
   useEffect(() => {
     async function updateData() {
       try {
-        await axios.post("http://localhost:5000/updateData", {
+        await axios.post("http://localhost:5000/changeData", {
           happiness: 6,
           decisions: {
             1: "work",

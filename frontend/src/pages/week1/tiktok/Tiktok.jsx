@@ -16,7 +16,7 @@ function Tiktok() {
   useEffect(() => {
     async function updateData() {
       try {
-        const response = await axios.post("http://localhost:5000/updateData", {
+        const response = await axios.post("http://localhost:5000/changeData", {
           happiness: 3,
           decisions: {
             1: "tiktok",

@@ -24,7 +24,7 @@ function Sleep() {
   useEffect(() => {
     async function updateData() {
       try {
-        const response = await axios.post("http://localhost:5000/updateData", {
+        const response = await axios.post("http://localhost:5000/changeData", {
           happiness: 4,
           decisions: {
             1: "sleep",

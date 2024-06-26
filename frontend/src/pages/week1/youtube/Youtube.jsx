@@ -40,7 +40,7 @@ function Youtube() {
   useEffect(() => {
     async function updateData() {
       try {
-        const response = await axios.post("http://localhost:5000/updateData", {
+        const response = await axios.post("http://localhost:5000/changeData", {
           happiness: 3.5,
           decisions: {
             1: "youtube",

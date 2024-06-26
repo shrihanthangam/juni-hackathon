@@ -8,6 +8,7 @@
   height: 600px;
   /* top: 22%; */
   left: calc(50% - 225px);
+  z-index: 100;
 }
 
 .phone-heading {

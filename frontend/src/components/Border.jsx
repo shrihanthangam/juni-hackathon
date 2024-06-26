@@ -1,12 +1,15 @@
 import "../static/css/Border.css";
 
-function Border({ content }) {
+function Border({ content, bgColor }) {
   return (
     <>
-      <div className="border">
-        {/* <div className="content">{content}</div> */}
-        {content}
-      </div>
+      {bgColor ? (
+        <div className="border" style={{ backgroundColor: bgColor }}>
+          {content}
+        </div>
+      ) : (
+        <div className="border">{content}</div>
+      )}
     </>
   );
 }

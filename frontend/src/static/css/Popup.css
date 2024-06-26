@@ -26,3 +26,8 @@
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
 }
+
+.popup-smalltext {
+  float: left;
+  white-space: pre-line;
+}

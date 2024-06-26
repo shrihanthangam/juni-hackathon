@@ -28,14 +28,46 @@ app.get("/getData", (req, res) => {
   }
 });
 
-// Endpoint to update data.json
-app.post("/updateData", (req, res) => {
+app.post("/changeData", (req, res) => {
   const newData = req.body; // Assuming JSON data is sent in the request body
   try {
     // Logic to update data in your JSON file or database
     // For example, if you are updating a JSON file
     const jsonString = JSON.stringify(newData);
     fs.writeFileSync("data.json", jsonString, "utf-8");
+    res.status(200).json({ message: "Data updated successfully" });
+  } catch (error) {
+    console.error("Error updating data:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// Deep merge function
+const deepMerge = (target, source) => {
+  for (const key in source) {
+    if (source[key] instanceof Object && key in target) {
+      Object.assign(source[key], deepMerge(target[key], source[key]));
+    }
+  }
+  return Object.assign(target || {}, source);
+};
+
+app.put("/updateData", (req, res) => {
+  const newData = req.body; // Assuming JSON data is sent in the request body
+  try {
+    // Read the existing data from the JSON file
+    const existingData = JSON.parse(fs.readFileSync("data.json", "utf-8"));
+
+    // Deep merge the new data with the existing data
+    const updatedData = deepMerge(existingData, newData);
+
+    // Write the updated data back to the JSON file
+    fs.writeFileSync(
+      "data.json",
+      JSON.stringify(updatedData, null, 2),
+      "utf-8"
+    );
+
     res.status(200).json({ message: "Data updated successfully" });
   } catch (error) {
     console.error("Error updating data:", error);
