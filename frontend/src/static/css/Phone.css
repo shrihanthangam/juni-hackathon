@@ -1,38 +1,135 @@
+/* Phone.css */
 #phone {
   font-family: "Open Sans", sans-serif;
-  border: 1px solid #424242;
-  background-color: #c5c5c5;
-  border-radius: 15px;
   position: absolute;
-  width: 450px;
-  height: 600px;
-  /* top: 22%; */
+  width: 20%;
+  height: 89.5%;
   left: calc(50% - 225px);
   z-index: 100;
+  left: 40%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Adding a pseudo-element for the background */
+#phone::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5; /* Adjust the opacity value as needed */
+  z-index: -1; /* Ensure it is behind the content */
 }
 
 .phone-heading {
-  text-align: center;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  z-index: 100;
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .phone-text {
   font-size: 20px;
   margin: 10px;
   white-space: pre-line;
+  z-index: 100;
+  position: absolute;
+
+  left: 5%;
+  top: 22%;
+}
+
+.options {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 80%;
+  text-align: center;
+  z-index: 100;
+  position: relative;
+  transition: all 0.5s ease;
 }
 
 .option {
   padding: 10px 20px;
   background-color: #e0e0e0;
   border-radius: 5px;
-  margin: 40px 10px;
+  margin: 10px 0;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 100;
+  position: relative;
+  opacity: 0;
+  transform: translateY(-50px) scale(0.7);
+  pointer-events: none; /* Disable pointer events when not expanded */
+}
+
+.options.expanded .option {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto; /* Enable pointer events when expanded */
 }
 
 .option:hover {
   background-color: #ccc;
+}
+
+.show {
+  padding: 10px 20px;
+  background-color: rgb(221, 221, 221);
+  opacity: 1; /* Ensure full opacity */
+  border-radius: 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 100;
+  position: relative;
+}
+
+.show:hover {
+  background-color: #ccc;
+}
+
+.show-img {
+  opacity: 1; /* Ensure full opacity */
+  width: 20%;
+  float: left;
+  margin: none;
+  padding: auto;
+  position: relative;
+}
+
+/* New class for centered and adjusted position */
+.show-1 {
+  padding: 10px 20px;
+  background-color: rgba(214, 214, 214, 0.7);
+  border-radius: 20px;
+  margin: auto 0;
+  cursor: pointer;
+  width: 80%;
+  position: absolute;
+  left: 50%; /* Center horizontally */
+  top: 23%;
+  transform: translateX(-50%) translateY(-10%); /* Center horizontally and move up */
+}
+
+.show-2 {
+  padding: 10px 20px;
+  background-color: rgba(189, 188, 188, 0.5);
+  border-radius: 20px;
+  margin: auto 0;
+  cursor: pointer;
+  width: 75%;
+  position: absolute;
+  left: 50%; /* Center horizontally */
+  top: 26%;
+  transform: translateX(-50%) translateY(-10%); /* Center horizontally and move up */
 }

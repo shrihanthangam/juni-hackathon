@@ -9,7 +9,7 @@ import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
 import "../../../static/css/BlackOverlay.css";
 
-function Sleep3() {
+function Sleep4() {
   const [blink, setBlink] = useState(false);
   const [blur, setBlur] = useState(false);
   const [transitionTime, setTransitionTime] = useState(3);
@@ -27,13 +27,15 @@ function Sleep3() {
       .then((response) => response.json())
       .then((data) => {
         happiness = data["happiness"];
-        let week4Exists = data["decisions"][3];
+
+        let week4Exists = data["decisions"][4];
+
         if (week4Exists === "") {
           try {
             const response = axios.put("http://localhost:5000/updateData", {
               happiness: Math.max((happiness -= 1), 0),
               decisions: {
-                3: "sleep",
+                4: "sleep",
               },
             });
           } catch (error) {
@@ -131,7 +133,7 @@ function Sleep3() {
       <Border
         content={
           <>
-            <GoToWeek weekNumber={4} opacity={week4Visible ? 1 : 0} />
+            <GoToWeek weekNumber={5} opacity={week4Visible ? 1 : 0} />
             <Happiness />
             <div className={`${blur ? "blur" : ""}`}>
               <Notification text={"You decided to sleep more 😴"} />
@@ -151,4 +153,4 @@ function Sleep3() {
   );
 }
 
-export default Sleep3;
+export default Sleep4;

@@ -1,0 +1,10 @@
+.boba-container {
+  display: "flex";
+  flex-direction: "column";
+  height: "100vh";
+}
+
+.boba-canvas {
+  flex: 1;
+  width: 100%;
+}

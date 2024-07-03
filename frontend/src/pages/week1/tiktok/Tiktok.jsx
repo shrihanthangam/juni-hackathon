@@ -57,7 +57,7 @@ function Tiktok() {
 
   useEffect(() => {
     const phoneText =
-      "\n\nwow! you decided to scroll. you are being very\n\nproductive. it must be sooooooo hard.\n\ninstead of actually working and you know...\n\ngetting better you decided to work out your\n\nthumb muscles and scroll. You just wasted 3\n\nhours and feel horrible. Good job!!!!!!";
+      "wow! you decided to scroll. you\n\nare being very productive. it must\n\nbe sooooooo hard. instead\n\nof actually working and you know...\n\ngetting better you decided to\n\nworkout your thumb muscles and\n\nscroll.You just wasted 3 hours and\n\nfeel horrible. Good job!!!!!!";
 
     if (firstDone === false) {
       animateText(phoneText, 100, setFirstDone, () => {
@@ -84,6 +84,11 @@ function Tiktok() {
               phoneHeading={"Yay you get to scroll!"}
               options={{}}
               phoneText={curString}
+              style={{
+                top: "12%",
+                backgroundImage: `url("/pngs/iphone-inside.png")`,
+                backgroundSize: "cover",
+              }}
             />
           </>
         }

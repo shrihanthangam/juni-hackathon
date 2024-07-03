@@ -61,16 +61,18 @@ function Park() {
         week1Value = data["decisions"][1];
 
         setWeek1(week1Value);
-
-        try {
-          const response = axios.put("http://localhost:5000/updateData", {
-            happiness: Math.min(happiness + 2, 10),
-            decisions: {
-              2: "park",
-            },
-          });
-        } catch (error) {
-          console.error(error);
+        let week4Exists = data["decisions"][2];
+        if (week4Exists === "") {
+          try {
+            const response = axios.put("http://localhost:5000/updateData", {
+              happiness: Math.min(happiness + 2, 10),
+              decisions: {
+                2: "park",
+              },
+            });
+          } catch (error) {
+            console.error(error);
+          }
         }
 
         let week1Action = "";

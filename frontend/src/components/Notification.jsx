@@ -32,21 +32,19 @@ function Notification({ text }) {
   if (closed) return null;
 
   return activated ? (
-    <>
-      <div
-        id="notification"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <p>
-          <i className="fas fa-info-circle"></i>
-          {text}
-          <span className="close" onClick={handleClose}>
-            &times;
-          </span>
-        </p>
-      </div>
-    </>
+    <div
+      id="notification"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <p>
+        <i className="fas fa-info-circle"></i>
+        {text}
+        <span className="close" onClick={handleClose}>
+          &times;
+        </span>
+      </p>
+    </div>
   ) : null;
 }
 

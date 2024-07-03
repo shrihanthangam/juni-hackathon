@@ -10,19 +10,14 @@ function Happiness() {
     fetch("http://localhost:5000/getData")
       .then((response) => response.json())
       .then((data) => {
-        for (const [key, value] of Object.entries(data)) {
-          if (key === "happiness") {
-            setHappiness(value * 10);
-            if (value * 10 <= 33.3) {
-              setHappinessClass("low");
-            } else if (value * 10 <= 66.6) {
-              setHappinessClass("medium");
-            } else {
-              setHappinessClass("high");
-            }
-
-            break;
-          }
+        let curHappiness = data["happiness"];
+        setHappiness(curHappiness);
+        if (curHappiness * 10 <= 33.3) {
+          setHappinessClass("low");
+        } else if (curHappiness * 10 <= 66.6) {
+          setHappinessClass("medium");
+        } else {
+          setHappinessClass("high");
         }
       })
       .catch((error) => console.error("Error fetching data:", error));

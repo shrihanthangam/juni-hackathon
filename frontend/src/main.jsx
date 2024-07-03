@@ -22,6 +22,13 @@ import Boba from "./pages/week2/boba/Boba";
 import Week3 from "./pages/week3/Week3";
 import Sleep3 from "./pages/week3/sleep/Sleep";
 import Games from "./pages/week3/games/Games";
+import Eat from "./pages/week3/eat/Eat";
+
+// Week 4
+import Week4 from "./pages/week4/Week4";
+import Sleep4 from "./pages/week4/sleep/Sleep";
+import Procrastinate from "./pages/week4/procrastinate/Procrastinate";
+import Coding from "./pages/week4/coding/Coding";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +86,26 @@ const router = createBrowserRouter([
   {
     path: "week3/games",
     element: <Games />,
+  },
+  {
+    path: "week3/eat",
+    element: <Eat />,
+  },
+  {
+    path: "week4/",
+    element: <Week4 />,
+  },
+  {
+    path: "week4/coding",
+    element: <Coding />,
+  },
+  {
+    path: "week4/procrastinate",
+    element: <Procrastinate />,
+  },
+  {
+    path: "week4/sleep",
+    element: <Sleep4 />,
   },
 ]);
 

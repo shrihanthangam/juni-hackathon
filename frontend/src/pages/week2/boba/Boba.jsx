@@ -1,13 +1,13 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import React, { useEffect, useRef, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
 import Border from "../../../components/Border";
 import Phone from "../../../components/Phone";
 import GoToWeek from "../../../components/GoToWeek";
 import Notification from "../../../components/Notification";
 
 function BobaStore() {
-  const { scene } = useGLTF("../../../../public/models/BobaMap/bobaMap.glb");
+  const { scene } = useGLTF("/models/BobaMap/bobaMap.glb");
 
   return <primitive object={scene} scale={1.5} position={[0, -5, -10]} />;
 }
@@ -16,7 +16,7 @@ function BobaDrink(bobaOption) {
   const { scene } = useGLTF(`/models/${bobaOption["option"]}.glb`);
 
   if (bobaOption["option"] === "brown_sugar_boba") {
-    return <primitive object={scene} scale={20} position={[-8, 0, 0]} />;
+    return <primitive object={scene} scale={60} position={[-10, -5, 0]} />;
   } else if (bobaOption["option"] === "pink_sugar_boba") {
     return <primitive object={scene} scale={1} position={[-2.5, -2, 0]} />;
   } else if (bobaOption["option"] === "macha_boba") {
@@ -72,20 +72,26 @@ function Boba() {
       <Border
         content={
           <>
-            <Notification text={"You decided to drink some boba"} />
-            <GoToWeek weekNumber={3} opacity={week3Visible ? 1 : 0} />
-            <Phone
-              phoneHeading={"What drink do you want?"}
-              options={bobaOptions}
-              style={{ top: `${phoneTop}px` }}
-            />
-            <Canvas style={{ height: "100vh" }} camera={{ fov: 50 }}>
-              <ambientLight intensity={0.8} />
-              <pointLight position={[10, 10, 10]} />
-              <directionalLight position={[-5, 5, 5]} intensity={0.5} />
-              {bobaOption ? <BobaDrink option={bobaOption} /> : ""}
-              <CameraController />
-            </Canvas>
+            <div className="boba-container">
+              <Notification text={"You decided to drink some boba"} />
+              <GoToWeek weekNumber={3} opacity={week3Visible ? 1 : 0} />
+              <Phone
+                phoneHeading={"What drink do you want?"}
+                options={bobaOptions}
+                style={{
+                  top: `${phoneTop}px`,
+                  backgroundImage: `url("/pngs/iphone-inside.png")`,
+                  backgroundSize: "cover",
+                }}
+              />
+              <Canvas className="boba-canvas">
+                <ambientLight intensity={0.8} />
+                <pointLight position={[10, 10, 10]} />
+                <directionalLight position={[-5, 5, 5]} intensity={0.5} />
+                {bobaOption ? <BobaDrink option={bobaOption} /> : ""}
+                <CameraController />
+              </Canvas>
+            </div>
           </>
         }
       />

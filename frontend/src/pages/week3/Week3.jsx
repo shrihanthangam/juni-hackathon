@@ -30,7 +30,11 @@ function Week2() {
               phoneHeading={"Week 3: What should I do?"}
               options={phoneOptions}
               phoneText={""}
-              style={{ top: "22%" }}
+              style={{
+                top: "12%",
+                backgroundImage: `url("/pngs/iphone.png")`,
+                backgroundSize: "cover",
+              }}
             />
           </>
         }

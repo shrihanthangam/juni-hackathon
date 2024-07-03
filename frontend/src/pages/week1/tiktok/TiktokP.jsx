@@ -85,6 +85,7 @@ function TiktokP() {
               phoneHeading={"Yay you get to scroll!"}
               options={{}}
               phoneText={curString}
+              style={{ top: "22%" }}
             />
           </>
         }

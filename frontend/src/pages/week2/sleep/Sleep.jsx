@@ -27,16 +27,18 @@ function Sleep2() {
       .then((response) => response.json())
       .then((data) => {
         happiness = data["happiness"];
-
-        try {
-          const response = axios.put("http://localhost:5000/updateData", {
-            happiness: Math.max((happiness -= 1), 0),
-            decisions: {
-              2: "sleep",
-            },
-          });
-        } catch (error) {
-          console.error(error);
+        let week4Exists = data["decisions"][2];
+        if (week4Exists === "") {
+          try {
+            const response = axios.put("http://localhost:5000/updateData", {
+              happiness: Math.max((happiness -= 1), 0),
+              decisions: {
+                2: "sleep",
+              },
+            });
+          } catch (error) {
+            console.error(error);
+          }
         }
       })
       .catch((error) => console.error("Error fetching data:", error));

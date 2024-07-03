@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
+
 import Border from "../../../components/Border";
 import Notification from "../../../components/Notification";
+import Happiness from "../../../components/Happiness";
+import GoToWeek from "../../../components/GoToWeek";
 import "./Games.css";
 
 function Games() {
@@ -20,10 +24,35 @@ function Games() {
   const [timeLeft, setTimeLeft] = useState(45); // Timer starts at 60 seconds
   const [gameEnded, setGameEnded] = useState(false);
   const [result, setResult] = useState(null); // "win" or "lose"
+  const [congratsText, setCongratsText] = useState("");
+  const [week4Visible, setWeek4Visible] = useState(false);
 
   const distance = (x1, y1, x2, y2) => {
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
   };
+
+  useEffect(() => {
+    let happiness = 0;
+    fetch("http://localhost:5000/getData")
+      .then((response) => response.json())
+      .then((data) => {
+        happiness = data["happiness"];
+        let week4Exists = data["decisions"][3];
+        if (week4Exists === "") {
+          try {
+            const response = axios.put("http://localhost:5000/updateData", {
+              happiness: Math.min((happiness += 0.5), 10),
+              decisions: {
+                3: "games",
+              },
+            });
+          } catch (error) {
+            console.error(error);
+          }
+        }
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   useEffect(() => {
     if (!gameStarted) return;
@@ -123,6 +152,17 @@ function Games() {
       setGameEnded(true);
       setResult("win");
       setGameStarted(false);
+      animateText(
+        "You won now but you\nfeel like you could've\n been doing real work.\nyou feel bad.",
+        100,
+        setCongratsText,
+        () => {
+          setTimeout(() => {
+            setWeek4Visible(true);
+            console.log("done!");
+          }, 2500);
+        }
+      );
     }
   }, [playerX, playerY, circles, score, gameStarted]);
 
@@ -156,11 +196,32 @@ function Games() {
     setTimeLeft(45);
   };
 
+  const animateText = (text, waitTime, settingFunction, callback) => {
+    let counter = 0;
+    const interval = setInterval(() => {
+      if (counter >= text.length) {
+        settingFunction(text); // Set full text when animation completes
+        clearInterval(interval); // Clear interval
+        if (callback) {
+          callback();
+        }
+        // finished(true);
+      } else {
+        settingFunction(text.substring(0, counter) + " |"); // Update curString progressively
+        counter += 1;
+      }
+    }, waitTime);
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  };
+
   return (
     <>
       <Border
         content={
           <>
+            <GoToWeek weekNumber={4} opacity={week4Visible ? 1 : 0} />
+            <Happiness />
             <div className="startup" style={{ opacity: `${startUp ? 1 : 0}` }}>
               <p id="name">Get the balls!</p>
               <p id="instructions">
@@ -218,10 +279,18 @@ function Games() {
                 ) : (
                   <div className="sad-face"></div>
                 )}
-                <p>{result === "win" ? "Congratulations!" : ""}</p>
-                <button id="tryagain" onClick={restart}>
-                  {result === "win" ? "" : "Try Again"}
-                </button>
+                {result === "win" ? (
+                  <>
+                    <p>
+                      <b>Congratulations!</b>
+                    </p>
+                    <p>{congratsText}</p>
+                  </>
+                ) : (
+                  <button id="tryagain" onClick={restart}>
+                    Try Again
+                  </button>
+                )}
               </div>
             )}
           </>
