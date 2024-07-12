@@ -4,6 +4,8 @@ import axios from "axios";
 import Border from "../../../components/Border";
 import Happiness from "../../../components/Happiness";
 import Notification from "../../../components/Notification";
+import GoToWeek from "../../../components/GoToWeek";
+
 import "./Coding.css";
 
 function Coding() {
@@ -11,6 +13,11 @@ function Coding() {
   const [code, setCode] = useState("");
   const [output, setOutput] = useState("");
   const [passed, setPassed] = useState(false);
+  const [angry, setAngry] = useState(false);
+  const [angryAmount, setAngryAmount] = useState(0);
+  const [angryText, setAngryText] = useState("");
+  const [color, setColor] = useState("black");
+  const [week2Visible, setWeek2Visible] = useState(false);
 
   const instructions =
     "Make a function IN PYTHON called fibonacci(x), this function finds the number xth number in the fibonacci sequence (x is the input of the function!) ex. fibonacci(1) = 0, fibonacci(2) = 1, fibonacci(3) = 1, etc.";
@@ -58,7 +65,68 @@ function Coding() {
     setOutput(result.output);
     if (result.passed) {
       setPassed(true);
+      setWeek2Visible(true);
+      setColor("green");
+    } else {
+      setAngry(true);
+      setColor("red");
+      if (angryAmount == 0) {
+        setTimeout(() => {
+          animateText(
+            "Good job you failed! You better not fail again... or else!",
+            175,
+            setAngryText,
+            () => {
+              setTimeout(() => {
+                setAngry(false);
+                setAngryText("");
+              }, 1500);
+            }
+          );
+        }, 6000);
+      }
+      if (angryAmount == 1) {
+        setTimeout(() => {
+          animateText(
+            "wow! again. I already gave you a warning.\nYou know what you should just procrastinate.",
+            150,
+            setAngryText,
+            () => {
+              setTimeout(() => {
+                setAngry(false);
+                setTimeout(() => {
+                  setAngryText("");
+                  setTimeout(() => {
+                    window.location.href = "/week4/procrastinate";
+                  }, 1500);
+                }, 3000);
+              }, 1500);
+            }
+          );
+        }, 6000);
+      }
+      setAngryAmount((prev) => prev + 1);
     }
+  };
+
+  const animateText = (text, waitTime, settingFunction, callback) => {
+    let counter = 0;
+    const interval = setInterval(() => {
+      if (counter >= text.length) {
+        settingFunction(text); // Set full text when animation completes
+        clearInterval(interval); // Clear interval
+        if (callback) {
+          callback();
+        }
+        // finished(true);
+      } else {
+        settingFunction(text.substring(0, counter) + " |"); // Update curString progressively
+        console.log(text.substring(0, counter + " |"));
+        counter += 1;
+      }
+    }, waitTime);
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
   };
 
   /*
@@ -92,11 +160,15 @@ function Coding() {
       <Border
         content={
           <>
+            <GoToWeek weekNumber={5} opacity={week4Visible ? 1 : 0} />
             <Happiness />
             <Notification text={"You decided to code!"} />
             <p
               className="passed"
-              style={{ display: `${passed ? "block" : "none"}` }}
+              style={{
+                display: `${passed ? "block" : "none"}`,
+                color: { color },
+              }}
             >
               Wow you passed all the tests!
             </p>
@@ -131,14 +203,27 @@ function Coding() {
                 cols="50"
               ></textarea>
               <br />
-              <button className="run-button" onClick={runCode}>
+              <button
+                className="run-button"
+                onClick={runCode}
+                disabled={true ? angry : false}
+              >
                 Run Code
               </button>
               <div>
                 <h3>Output:</h3>
-                <pre>{output}</pre>
+                <pre style={{ color: color }}>{output}</pre>
               </div>
             </div>
+            <p
+              id="angry"
+              style={{
+                fontSize: `${angry ? 400 : 0}px`,
+              }}
+            >
+              😡
+            </p>
+            <p id="angry-text">{angryText}</p>
           </>
         }
       />

@@ -7,6 +7,7 @@ import Window from "../../../components/Window";
 import Phone from "../../../components/Phone";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
+
 import "../../../static/css/BlackOverlay.css";
 
 function Sleep() {
@@ -131,7 +132,8 @@ function Sleep() {
       <Border
         content={
           <>
-            <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} />
+            <GoToWeek weekNumber={2} opacity={week2Visible ? 0 : 1} />
+            {/* <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} /> */}
             <Happiness />
             <div className={`${blur ? "blur" : ""}`}>
               <Notification text={"You decided to sleep more 😴"} />
@@ -140,8 +142,8 @@ function Sleep() {
                 style={{ transition: `opacity ${transitionTime}s ease` }}
                 className={`black-overlay${blink ? " visible" : ""}`}
               />
-              <Window left={100} top={100} />
-              <Window left={"calc(100% - 500px)"} top={100} />
+              <Window left={100} top={150} />
+              <Window right={100} top={150} />
               {blur && <p id="text">{curString}</p>}
             </div>
           </>

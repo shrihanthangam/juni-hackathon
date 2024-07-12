@@ -190,8 +190,8 @@ function Youtube() {
             <div
               className={`white-overlay ${isWhitened ? "visible" : ""}`}
             ></div>
-            <Window left={100} top={100} /> {/* Left Window */}
-            <Window left={"calc(100% - 500px)"} top={100} />
+            <Window left={100} top={150} /> {/* Left Window */}
+            <Window right={100} top={150} />
             {/* Right Window */}
             <Notification text={"You're watching youtube! ☹️"} />
             <Happiness />

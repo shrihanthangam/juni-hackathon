@@ -78,8 +78,8 @@ function TiktokP() {
             <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} />
             <Happiness />
             <Notification text="You decided to scroll ☹️" />
-            <Window left={100} top={100} /> {/* Left Window */}
-            <Window left={"calc(100% - 500px)"} top={100} />
+            <Window left={100} top={150} /> {/* Left Window */}
+            <Window right={100} top={150} />
             {/* Right Window */}
             <Phone
               phoneHeading={"Yay you get to scroll!"}

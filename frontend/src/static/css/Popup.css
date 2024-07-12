@@ -1,33 +1,44 @@
-/* src/Popup.css */
 .popup {
-  position: absolute;
-  max-width: fit-content;
-  height: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
 }
 
 .popup-inner {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
   text-align: center;
 }
 
+.popup-message {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.popup-smalltext {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
 .popup-close {
-  margin-top: 20px;
+  font-size: 16px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.5s ease-in-out;
 }
 
-.popup-smalltext {
-  float: left;
-  white-space: pre-line;
+.popup-close:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
 }

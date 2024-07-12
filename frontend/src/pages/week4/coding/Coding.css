@@ -88,3 +88,22 @@
   width: 300px;
   text-align: center;
 }
+
+#angry {
+  font-size: 0px;
+  transition: font-size 5s ease-in-out;
+  z-index: 999;
+  position: absolute;
+  left: 35%;
+  top: -30%;
+}
+
+#angry-text {
+  font-size: 25px;
+  position: absolute;
+  left: 35%;
+  top: 80%;
+  width: 33%;
+  z-index: 1000;
+  font-weight: bold;
+}

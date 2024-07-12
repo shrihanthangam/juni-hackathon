@@ -142,8 +142,8 @@ function Sleep4() {
                 style={{ transition: `opacity ${transitionTime}s ease` }}
                 className={`black-overlay${blink ? " visible" : ""}`}
               />
-              <Window left={100} top={100} />
-              <Window left={"calc(100% - 500px)"} top={100} />
+              <Window left={100} top={150} />
+              <Window right={100} top={150} />
               {blur && <p id="text">{curString}</p>}
             </div>
           </>

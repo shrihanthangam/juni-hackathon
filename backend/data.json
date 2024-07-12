@@ -1,1 +1,12 @@
-{"happiness":3,"decisions":{"1":"tiktok","2":"","3":"","4":"","5":"","6":"","7":""}}
+{
+  "happiness": 5,
+  "decisions": {
+    "1": "youtube",
+    "2": "sleep",
+    "3": "games",
+    "4": "coding",
+    "5": "",
+    "6": "",
+    "7": ""
+  }
+}

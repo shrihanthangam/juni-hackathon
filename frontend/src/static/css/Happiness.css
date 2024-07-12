@@ -1,39 +1,60 @@
-.happiness-container {
-  position: absolute; /* Add position for absolute positioning */
-  height: 20px; /* Adjust the height to fit the title and the progress bar */
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  overflow: hidden;
-  z-index: 1;
+.happiness-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -45%;
+  left: 35%;
 }
 
 #happiness-title {
-  position: absolute;
   font-weight: bold;
   font-size: 40px;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  white-space: nowrap; /* Prevent text from wrapping */
-  z-index: 1; /* Ensure the title is above the progress bar */
+  margin-bottom: 5px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: "Arial", sans-serif;
+}
+
+.happiness-container {
+  width: 25%;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .happiness-bar {
-  position: absolute;
-  bottom: 0; /* Align the progress bar to the bottom of the container */
   height: 100%;
-  transition: width 0.3s ease-in-out;
-  transition: background-color 0.5s ease-in-out;
-  z-index: inherit;
+  transition: width 0.3s ease-in-out, background-color 0.5s ease-in-out;
+  border-radius: 15px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .low {
-  background-color: rgb(255, 94, 94);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 94, 94, 1) 0%,
+    rgba(255, 94, 94, 0.8) 100%
+  );
 }
 
 .medium {
-  background: rgb(255, 198, 92);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 198, 92, 1) 0%,
+    rgba(255, 198, 92, 0.8) 100%
+  );
 }
 
 .high {
-  background-color: rgb(47, 190, 47);
+  background: linear-gradient(
+    90deg,
+    rgba(47, 190, 47, 1) 0%,
+    rgba(47, 190, 47, 0.8) 100%
+  );
 }

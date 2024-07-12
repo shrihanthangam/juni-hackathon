@@ -23,8 +23,8 @@ function Week2() {
           <>
             <Happiness />
             <Notification text={"Welcome to Week 3!"} />
-            <Window left={100} top={100} /> {/* Left Window */}
-            <Window left={"calc(100% - 500px)"} top={100} />
+            <Window left={100} top={150} /> {/* Left Window */}
+            <Window right={100} top={150} />
             {/* Right Window */}
             <Phone
               phoneHeading={"Week 3: What should I do?"}

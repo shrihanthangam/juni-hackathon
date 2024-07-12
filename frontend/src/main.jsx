@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Credits from "./pages/Credits";
 
 // Week 1
 import Week1 from "./pages/week1/Week1";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "credits",
+    element: <Credits />,
   },
   {
     path: "week1",

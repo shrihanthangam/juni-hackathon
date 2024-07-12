@@ -7,11 +7,13 @@ import Phone from "../../../components/Phone";
 import Window from "../../../components/Window";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
+import BlackenScreen from "../../../components/BlackenScreen";
 
 function Tiktok() {
   const [curString, setCurString] = useState("");
   const [firstDone, setFirstDone] = useState(false);
   const [week2Visible, setWeek2Visible] = useState(false);
+  const [blackScreen, setBlackScreen] = useState(true);
 
   useEffect(() => {
     async function updateData() {
@@ -69,16 +71,23 @@ function Tiktok() {
     }
   }, []); // Empty dependency array ensures effect runs only once on component mount
 
+  useEffect(() => {
+    setTimeout(() => {
+      setBlackScreen(false);
+    }, 500);
+  }, []);
+
   return (
     <>
       <Border
         content={
           <>
+            <BlackenScreen visible={blackScreen} />
             <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} />
             <Happiness />
             <Notification text="You decided to scroll ☹️" />
-            <Window left={100} top={100} /> {/* Left Window */}
-            <Window left={"calc(100% - 500px)"} top={100} />
+            <Window left={100} top={150} /> {/* Left Window */}
+            <Window right={100} top={150} />
             {/* Right Window */}
             <Phone
               phoneHeading={"Yay you get to scroll!"}

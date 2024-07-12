@@ -194,8 +194,8 @@ function Work() {
               ""
             )}
             <Notification text="Good job! You decided to work! 😁" />
-            <Window left={100} top={100} />
-            <Window left={"calc(100% - 500px)"} top={100} />
+            <Window left={100} top={150} />
+            <Window right={100} top={150} />
             <textarea
               type="text"
               className="essay"

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import "../static/css/Phone.css";
 
-function Phone({ phoneHeading, options, phoneText, style, notiText }) {
+function Phone({
+  phoneHeading,
+  options,
+  phoneText,
+  style,
+  notiText,
+  addHeading,
+}) {
   const [expanded, setExpanded] = useState(false);
 
   const handleOptionClick = (optionKey) => {
@@ -11,7 +18,7 @@ function Phone({ phoneHeading, options, phoneText, style, notiText }) {
     return (
       <>
         <div id="phone" style={style}>
-          {/* <p className="phone-heading">{phoneHeading}</p> */}
+          {addHeading ? <p className="phone-heading">{phoneHeading}</p> : ""}
           {/* <p className="phone-text">{phoneText}</p> */}
           <div
             className={`options ${expanded ? "expanded" : ""}`}
