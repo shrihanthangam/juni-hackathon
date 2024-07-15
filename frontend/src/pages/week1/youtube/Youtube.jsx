@@ -14,6 +14,8 @@ import t2 from "../../../static/images/thumbnails/t2.jpg";
 import t3 from "../../../static/images/thumbnails/t3.jpg";
 import t4 from "../../../static/images/thumbnails/t4.jpg";
 
+import Countdown from "../../../components/Countdown";
+
 function Youtube() {
   const [curString, setCurString] = useState("");
   const [curSmallString, setCurSmallString] = useState("");
@@ -47,9 +49,6 @@ function Youtube() {
             2: "",
             3: "",
             4: "",
-            5: "",
-            6: "",
-            7: "",
           },
         });
         console.log("Data updated successfully");
@@ -185,6 +184,7 @@ function Youtube() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} />
             <Happiness />
             <div

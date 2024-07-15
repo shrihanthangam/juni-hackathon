@@ -9,6 +9,8 @@ import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
 import "../../../static/css/BlackOverlay.css";
 
+import Countdown from "../../../components/Countdown";
+
 function Sleep3() {
   const [blink, setBlink] = useState(false);
   const [blur, setBlur] = useState(false);
@@ -131,6 +133,7 @@ function Sleep3() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={4} opacity={week4Visible ? 1 : 0} />
             <Happiness />
             <div className={`${blur ? "blur" : ""}`}>

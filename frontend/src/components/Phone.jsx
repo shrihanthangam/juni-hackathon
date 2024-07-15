@@ -27,7 +27,7 @@ function Phone({
             <div className="show">
               <img className="show-img" src="/pngs/show.png" alt="Show"></img>
               <p className="show-text">
-                {notiText ? notiText : "Show Notifications"}
+                {notiText ? notiText : "Show Actions!"}
               </p>
             </div>
 

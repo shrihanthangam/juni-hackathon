@@ -7,6 +7,7 @@ import Window from "../../../components/Window";
 import Phone from "../../../components/Phone";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
+import Countdown from "../../../components/Countdown";
 
 import "../../../static/css/BlackOverlay.css";
 
@@ -29,11 +30,9 @@ function Sleep() {
           happiness: 4,
           decisions: {
             1: "sleep",
+            2: "",
             3: "",
             4: "",
-            5: "",
-            6: "",
-            7: "",
           },
         });
         console.log("Data updated successfully");
@@ -132,6 +131,7 @@ function Sleep() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={2} opacity={week2Visible ? 0 : 1} />
             {/* <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} /> */}
             <Happiness />

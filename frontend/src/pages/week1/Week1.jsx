@@ -6,6 +6,7 @@ import Phone from "../../components/Phone";
 import Window from "../../components/Window";
 import Happiness from "../../components/Happiness";
 import BlackenScreen from "../../components/BlackenScreen";
+import Countdown from "../../components/Countdown";
 
 function Week1() {
   const [blackScreen, setBlackScreen] = useState(true);
@@ -34,7 +35,8 @@ function Week1() {
       <Border
         content={
           <>
-            <BlackenScreen visible={blackScreen} />;
+            <Countdown />
+            <BlackenScreen visible={blackScreen} />
             <Happiness />
             <Notification text={"Summer just started!"} />
             <Window left={100} top={150} /> {/* Left Window */}
@@ -45,7 +47,7 @@ function Week1() {
               options={phoneOptions}
               phoneText={""}
               style={{
-                top: "12%",
+                top: "11%",
                 backgroundImage: `url("/pngs/iphone.png")`,
                 backgroundSize: "cover",
               }}

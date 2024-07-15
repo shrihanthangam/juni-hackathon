@@ -1,12 +1,9 @@
 {
-  "happiness": 5,
+  "happiness": 4,
   "decisions": {
     "1": "youtube",
-    "2": "sleep",
+    "2": "park",
     "3": "games",
-    "4": "coding",
-    "5": "",
-    "6": "",
-    "7": ""
+    "4": "procrastinate"
   }
 }

@@ -7,6 +7,8 @@ import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
 import "./Games.css";
 
+import Countdown from "../../../components/Countdown";
+
 function Games() {
   const moveSpeed = 8;
   const circleMoveSpeed = 2;
@@ -220,6 +222,7 @@ function Games() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={4} opacity={week4Visible ? 1 : 0} />
             <Happiness />
             <div className="startup" style={{ opacity: `${startUp ? 1 : 0}` }}>

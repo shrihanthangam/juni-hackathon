@@ -31,6 +31,9 @@ import Sleep4 from "./pages/week4/sleep/Sleep";
 import Procrastinate from "./pages/week4/procrastinate/Procrastinate";
 import Coding from "./pages/week4/coding/Coding";
 
+// End
+import End from "./pages/End";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -111,6 +114,10 @@ const router = createBrowserRouter([
   {
     path: "week4/sleep",
     element: <Sleep4 />,
+  },
+  {
+    path: "/end",
+    element: <End />,
   },
 ]);
 

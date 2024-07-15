@@ -8,6 +8,7 @@ import Phone from "../../../components/Phone";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
 import "../../../static/css/BlackOverlay.css";
+import Countdown from "../../../components/Countdown";
 
 function Sleep4() {
   const [blink, setBlink] = useState(false);
@@ -133,6 +134,7 @@ function Sleep4() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={5} opacity={week4Visible ? 1 : 0} />
             <Happiness />
             <div className={`${blur ? "blur" : ""}`}>

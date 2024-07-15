@@ -11,6 +11,7 @@ import Submit from "../../../components/Submit";
 import Popup from "../../../components/Popup";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
+import Countdown from "../../../components/Countdown";
 
 import "./Work.css";
 
@@ -40,9 +41,6 @@ function Work() {
             2: "",
             3: "",
             4: "",
-            5: "",
-            6: "",
-            7: "",
           },
         });
         console.log("Data updated successfully");
@@ -181,6 +179,7 @@ function Work() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} />
             <Happiness />
             {popupVisible ? (

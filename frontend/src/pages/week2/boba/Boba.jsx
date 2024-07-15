@@ -6,6 +6,7 @@ import Border from "../../../components/Border";
 import Phone from "../../../components/Phone";
 import GoToWeek from "../../../components/GoToWeek";
 import Notification from "../../../components/Notification";
+import Countdown from "../../../components/Countdown";
 
 import "./Boba.css";
 
@@ -125,6 +126,7 @@ function Boba() {
       <Border
         content={
           <>
+            <Countdown />
             <Notification text={"You decided to drink some boba"} />
             <div className="boba-container">
               <GoToWeek weekNumber={3} opacity={week3Visible ? 1 : 0} />

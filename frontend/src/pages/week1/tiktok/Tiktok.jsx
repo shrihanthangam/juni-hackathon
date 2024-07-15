@@ -8,6 +8,7 @@ import Window from "../../../components/Window";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
 import BlackenScreen from "../../../components/BlackenScreen";
+import Countdown from "../../../components/Countdown";
 
 function Tiktok() {
   const [curString, setCurString] = useState("");
@@ -25,9 +26,6 @@ function Tiktok() {
             2: "",
             3: "",
             4: "",
-            5: "",
-            6: "",
-            7: "",
           },
         });
         console.log("Data updated successfully");
@@ -82,6 +80,7 @@ function Tiktok() {
       <Border
         content={
           <>
+            <Countdown />
             <BlackenScreen visible={blackScreen} />
             <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} />
             <Happiness />

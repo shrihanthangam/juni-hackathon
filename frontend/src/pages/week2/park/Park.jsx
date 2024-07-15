@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Sky } from "@react-three/drei";
+import { Effects, Sky } from "@react-three/drei";
 
 import Border from "../../../components/Border";
 import Happiness from "../../../components/Happiness";
 import Notification from "../../../components/Notification";
 import Popup from "../../../components/Popup";
 import GoToWeek from "../../../components/GoToWeek";
+
+import Countdown from "../../../components/Countdown";
 
 import "./Park.css";
 // Component to create a tree
@@ -49,8 +51,11 @@ function Park() {
   const [cameraZ, setCameraZ] = useState(10); // Move cameraZ state here
   const [closedPopups, setClosedPopups] = useState(0);
   const [week3Visible, setWeek3Visible] = useState(false);
+  const stopDouble = useRef(false);
 
   useEffect(() => {
+    if (!stopDouble) return;
+    stopDouble.current = true;
     let happiness = 0;
     fetch("http://localhost:5000/getData")
       .then((response) => response.json())
@@ -170,6 +175,7 @@ function Park() {
   };
 
   const animateText = (text, waitTime, settingFunction, callback) => {
+    console.log(text, waitTime);
     let counter = 0;
     const interval = setInterval(() => {
       if (counter >= text.length) {
@@ -198,6 +204,7 @@ function Park() {
         bgColor={"#87CEEB"}
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={3} opacity={week3Visible ? 1 : 0} />
             <Notification text={"You decided to go to the park!"} />
             <Happiness />

@@ -7,6 +7,7 @@ import Phone from "../../../components/Phone";
 import Window from "../../../components/Window";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
+import Countdown from "../../../components/Countdown";
 
 function Tiktok() {
   const [curString, setCurString] = useState("");
@@ -78,6 +79,7 @@ function Tiktok() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={5} opacity={week2Visible ? 1 : 0} />
             <Happiness />
             <Notification text="You decided to scroll ☹️" />

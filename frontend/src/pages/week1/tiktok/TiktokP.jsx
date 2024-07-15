@@ -7,6 +7,7 @@ import Phone from "../../../components/Phone";
 import Window from "../../../components/Window";
 import Happiness from "../../../components/Happiness";
 import GoToWeek from "../../../components/GoToWeek";
+import Countdown from "../../../components/Countdown";
 
 function TiktokP() {
   const [curString, setCurString] = useState("");
@@ -21,11 +22,9 @@ function TiktokP() {
           decisions: {
             1: "work-tiktok",
             2: "",
+            2: "",
             3: "",
             4: "",
-            5: "",
-            6: "",
-            7: "",
           },
         });
         console.log("Data updated successfully");
@@ -75,6 +74,7 @@ function TiktokP() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={2} opacity={week2Visible ? 1 : 0} />
             <Happiness />
             <Notification text="You decided to scroll ☹️" />

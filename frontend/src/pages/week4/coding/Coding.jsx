@@ -5,6 +5,7 @@ import Border from "../../../components/Border";
 import Happiness from "../../../components/Happiness";
 import Notification from "../../../components/Notification";
 import GoToWeek from "../../../components/GoToWeek";
+import Countdown from "../../../components/Countdown";
 
 import "./Coding.css";
 
@@ -18,6 +19,7 @@ function Coding() {
   const [angryText, setAngryText] = useState("");
   const [color, setColor] = useState("black");
   const [week2Visible, setWeek2Visible] = useState(false);
+  const [week4Visible, setWeek4Visible] = useState(false);
 
   const instructions =
     "Make a function IN PYTHON called fibonacci(x), this function finds the number xth number in the fibonacci sequence (x is the input of the function!) ex. fibonacci(1) = 0, fibonacci(2) = 1, fibonacci(3) = 1, etc.";
@@ -160,6 +162,7 @@ function Coding() {
       <Border
         content={
           <>
+            <Countdown />
             <GoToWeek weekNumber={5} opacity={week4Visible ? 1 : 0} />
             <Happiness />
             <Notification text={"You decided to code!"} />

@@ -3,6 +3,7 @@ import Notification from "../../components/Notification";
 import Phone from "../../components/Phone";
 import Window from "../../components/Window";
 import Happiness from "../../components/Happiness";
+import Countdown from "../../components/Countdown";
 
 function Week4() {
   const handleClick = (option) => {
@@ -21,6 +22,7 @@ function Week4() {
       <Border
         content={
           <>
+            <Countdown />
             <Happiness />
             <Notification text={"Welcome to Week 4!"} />
             <Window left={100} top={150} /> {/* Left Window */}
