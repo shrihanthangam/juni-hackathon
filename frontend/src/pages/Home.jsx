@@ -11,18 +11,21 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/getData")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data["happiness"]) {
-          setBackendWorking(true);
-          console.log(data["happiness"]);
-        }
-      })
-      .catch((e) => {
-        console.error(e);
-        setBackendError(true);
-      });
+    setInterval(() => {
+      console.log("rerun");
+      fetch("http://localhost:5000/getData")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data["happiness"]) {
+            setBackendWorking(true);
+            console.log(data["happiness"]);
+          }
+        })
+        .catch((e) => {
+          console.error(e);
+          setBackendError(true);
+        });
+    }, 100);
   }, []);
 
   return (

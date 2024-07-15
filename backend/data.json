@@ -1,9 +1,1 @@
-{
-  "happiness": 4,
-  "decisions": {
-    "1": "youtube",
-    "2": "park",
-    "3": "games",
-    "4": "procrastinate"
-  }
-}
+{ "happiness": 5, "decisions": { "1": "", "2": "", "3": "", "4": "" } }
